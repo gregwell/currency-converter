@@ -4,7 +4,7 @@ import useStyles from './styles';
 import Flag from "./Flag/Flag";
 
 
-const Input = ({label, country, currencyCode}) => {
+const Input = ({label, country}) => {
   const classes = useStyles();
 
   return (
@@ -28,7 +28,7 @@ const Input = ({label, country, currencyCode}) => {
             endAdornment: (
               <InputAdornment position="end">
                 <div className={classes.currencyCodeAdornment}>
-                  {currencyCode}
+                  {(country==="GB") ? "GBP" : "PLN"}
                 </div>
               </InputAdornment>
             ),

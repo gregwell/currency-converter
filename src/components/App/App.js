@@ -7,8 +7,8 @@ function App() {
   return (
     <div className={classes.app}>
       <header>
-        <Input label="You send" country="GB" currencyCode="GBP"/>
-        <Input label="They receive" country="PL" currencyCode="PLN"/>
+        <Input label="You send" country="GB"/>
+        <Input label="They receive" country="PL"/>
         <div className={classes.currencyInfoContainer}>
           1 GBP = <span className={classes.bold}>3.67 PLN</span>
           <p className={classes.bold}>No transfer fee</p>
