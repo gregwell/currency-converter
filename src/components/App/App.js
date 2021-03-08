@@ -11,9 +11,9 @@ function App() {
   useEffect(() => {
     let mounted = true;
     getExchangeRate()
-      .then(items => {
+      .then(fetchedExchangeRate => {
         if(mounted) {
-          setExchangeRate(items)
+          setExchangeRate(fetchedExchangeRate)
         }
       })
     return () => mounted = false;
@@ -25,7 +25,7 @@ function App() {
         <Input label="You send" country="GB"/>
         <Input label="They receive" country="PL"/>
         <div className={classes.currencyInfoContainer}>
-          1 GBP = <span className={classes.bold}>{exchangeRate?.rates[0]?.mid + " PLN"}</span>
+          1 GBP = <span className={classes.bold}>{exchangeRate + " PLN"}</span>
           <p className={classes.bold}>No transfer fee</p>
         </div>
       </header>
