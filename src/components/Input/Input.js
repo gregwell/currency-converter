@@ -4,7 +4,7 @@ import useStyles from './styles';
 import Flag from "./Flag/Flag";
 
 
-const Input = ({label, country}) => {
+const Input = ({label, country, value, onChange}) => {
   const classes = useStyles();
 
   return (
@@ -17,6 +17,8 @@ const Input = ({label, country}) => {
           variant="outlined"
           className={classes.textField}
           size="small"
+          value={value}
+          onChange={onChange}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
