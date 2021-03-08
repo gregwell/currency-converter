@@ -24,10 +24,13 @@ function App() {
       <header>
         <Input label="You send" country="GB"/>
         <Input label="They receive" country="PL"/>
-        <div className={classes.currencyInfoContainer}>
-          1 GBP = <span className={classes.bold}>{exchangeRate + " PLN"}</span>
-          <p className={classes.bold}>No transfer fee</p>
-        </div>
+         { exchangeRate != null &&
+          (
+            <div className={classes.currencyInfoContainer}>
+              1 GBP = <span className={classes.bold}>{exchangeRate + " PLN"}</span>
+              <p className={classes.bold}>No transfer fee</p>
+            </div>
+          )}
       </header>
     </div>
   );
