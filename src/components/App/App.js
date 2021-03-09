@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import currency from 'currency.js';
+
 import useStyles from './styles';
 import Input from '../Input/Input';
 import { getExchangeRate } from '../../services/exchangeRate';
@@ -9,13 +11,13 @@ function App() {
   const [exchangeRate, setExchangeRate] = useState(null);
   const [userCurrency, setUserCurrency] = useState([]);
   const [foreignCurrency, setForeignCurrency] = useState([]);
-  const isValidInputRegex = /^\d+[,.]?\d{0,2}$/;
+  const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$/;
 
   const handleUserCurrencyChange = (e) => {
     if (isValid(e.target.value)) {
       let valueWithDot = e.target.value.replace(/,/, '.') 
       setUserCurrency(valueWithDot);
-      valueWithDot==="" ? setForeignCurrency("") : setForeignCurrency(valueWithDot*exchangeRate);
+      valueWithDot==="" ? setForeignCurrency("") : setForeignCurrency(currency(valueWithDot).multiply(exchangeRate));
     }
   }
 
@@ -23,7 +25,7 @@ function App() {
     if (isValid(e.target.value)) {
       let valueWithDot = e.target.value.replace(/,/, '.') 
       setForeignCurrency(valueWithDot);
-      valueWithDot==="" ? setUserCurrency("") : setUserCurrency(valueWithDot/exchangeRate);
+      valueWithDot==="" ? setUserCurrency("") : setUserCurrency(currency(valueWithDot).divide(exchangeRate));
     }
   }
 
