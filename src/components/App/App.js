@@ -13,27 +13,17 @@ function App() {
   const [foreignCurrency, setForeignCurrency] = useState([]);
   const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$/;
 
-  const handleUserCurrencyChange = (e) => {
-    if (isValid(e.target.value)) {
-      let valueWithDot = e.target.value.replace(/,/, '.') 
+  const handleInputChange = (e, isUserCurrency ) => {
+    if (!(isValidInputRegex.test(e.target.value) || e.target.value==="")) {
+      return;
+    }
+    let valueWithDot = e.target.value.replace(/,/, '.'); 
+    if(isUserCurrency) {
       setUserCurrency(valueWithDot);
       valueWithDot==="" ? setForeignCurrency("") : setForeignCurrency(currency(valueWithDot).multiply(exchangeRate));
-    }
-  }
-
-  const handleForeignCurrencyChange = (e) => {
-    if (isValid(e.target.value)) {
-      let valueWithDot = e.target.value.replace(/,/, '.') 
+    } else { 
       setForeignCurrency(valueWithDot);
       valueWithDot==="" ? setUserCurrency("") : setUserCurrency(currency(valueWithDot).divide(exchangeRate));
-    }
-  }
-
-  const isValid = (input) => {
-    if (isValidInputRegex.test(input) || input==="") {
-      return true;
-    } else {
-      return false;
     }
   }
 
@@ -51,8 +41,8 @@ function App() {
   return (
     <div className={classes.app}>
       <header>
-        <Input value={userCurrency} onChange={handleUserCurrencyChange} label="You send" country="GB"/>
-        <Input value={foreignCurrency} onChange={handleForeignCurrencyChange} label="They receive" country="PL"/>
+        <Input value={userCurrency} onChange={e => handleInputChange(e, true)} label="You send" country="GB"/>
+        <Input value={foreignCurrency} onChange={e => handleInputChange(e, false)} label="They receive" country="PL"/>
          { exchangeRate != null &&
           (
             <div className={classes.currencyInfoContainer}>
