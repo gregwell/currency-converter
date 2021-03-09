@@ -18,7 +18,7 @@ function App() {
       return;
     }
     let valueWithDot = e.target.value.replace(/,/, '.'); 
-    if(isUserCurrency) {
+    if (isUserCurrency) {
       setUserCurrency(valueWithDot);
       valueWithDot==="" ? setForeignCurrency("") : setForeignCurrency(currency(valueWithDot).multiply(exchangeRate));
     } else { 
@@ -46,7 +46,7 @@ function App() {
          { exchangeRate != null &&
           (
             <div className={classes.currencyInfoContainer}>
-              1 GBP = <span className={classes.bold}>{exchangeRate + " PLN"}</span>
+              1 GBP = <span className={classes.bold}>{currency(exchangeRate) + " PLN"}</span>
               <p className={classes.bold}>No transfer fee</p>
             </div>
           )}

@@ -4,6 +4,8 @@
 
 This app allows to carry out calculations based on exchange rates from NBP Web API.
 
+![/demo/demo.gif](/demo/demo.gif)
+
 ## How to run this project locally
 
 1. Clone the repository
