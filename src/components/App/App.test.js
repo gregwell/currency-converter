@@ -9,8 +9,8 @@ it('renders without crashing', () => {
 });
 
 it('should not allow to input letters in user currency input', () => {
-  const { getByPlaceholderText } = render(<App />)
-  const userCurrencyInput = getByPlaceholderText(/User Currency/i);
+  const { getByLabelText } = render(<App />)
+  const userCurrencyInput = getByLabelText('You send');
 
   fireEvent.change(userCurrencyInput, { target: { value: 'm' } });
   expect(userCurrencyInput.value).toEqual('');
