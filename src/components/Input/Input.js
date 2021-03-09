@@ -4,7 +4,7 @@ import useStyles from './styles';
 import Flag from "./Flag/Flag";
 
 
-const Input = ({label, country, value, onChange}) => {
+const Input = ({label, country, placeholder, value, onChange}) => {
   const classes = useStyles();
 
   return (
@@ -19,6 +19,7 @@ const Input = ({label, country, value, onChange}) => {
           size="small"
           value={value}
           onChange={onChange}
+          placeholder = {placeholder}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

@@ -41,8 +41,8 @@ function App() {
   return (
     <div className={classes.app}>
       <header>
-        <Input value={userCurrency} onChange={e => handleInputChange(e, true)} label="You send" country="GB"/>
-        <Input value={foreignCurrency} onChange={e => handleInputChange(e, false)} label="They receive" country="PL"/>
+        <Input value={userCurrency} onChange={e => handleInputChange(e, true)} label="You send" country="GB" placeholder="User Currency"/>
+        <Input value={foreignCurrency} onChange={e => handleInputChange(e, false)} label="They receive" country="PL" placeholder="Foreign Currency"/>
          { exchangeRate != null &&
           (
             <div className={classes.currencyInfoContainer}>

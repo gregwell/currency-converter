@@ -30,7 +30,8 @@ This app allows to carry out calculations based on exchange rates from NBP Web A
 
 - [TDD & writing good tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/tdd-and-writing-good-tests.md)
 - [Create-react-app config & JEST tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/create-react-app-and-jest-tests.md)
-- Using an external web api
+- Fetching data from Web API
+- Interaction tests with React Testing Library
 
 ### 3. Do
 
