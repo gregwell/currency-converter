@@ -10,8 +10,8 @@ it('renders without crashing', () => {
 
 it('should not allow to input letters in user currency input', () => {
   render(<App />);
-  const userCurrencyInput = screen.getByLabelText('You send');
-
+  const userCurrencyInput = screen.getByRole('textbox', { name: /you send/i })
+  
   fireEvent.change(userCurrencyInput, { target: { value: 'm' } });
   expect(userCurrencyInput.value).toEqual('');
 });

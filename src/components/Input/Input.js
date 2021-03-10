@@ -42,7 +42,6 @@ const Input = ({label, country, value, onChange}) => {
           inputProps={{
             "aria-label": label
           }}
-          
         />
       </Grid>
     </div>
