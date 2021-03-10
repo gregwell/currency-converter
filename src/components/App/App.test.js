@@ -1,5 +1,5 @@
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
@@ -9,8 +9,8 @@ it('renders without crashing', () => {
 });
 
 it('should not allow to input letters in user currency input', () => {
-  const { getByLabelText } = render(<App />)
-  const userCurrencyInput = getByLabelText('You send');
+  render(<App />);
+  const userCurrencyInput = screen.getByLabelText('You send');
 
   fireEvent.change(userCurrencyInput, { target: { value: 'm' } });
   expect(userCurrencyInput.value).toEqual('');
