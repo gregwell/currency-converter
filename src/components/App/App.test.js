@@ -1,11 +1,9 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import ReactDOM from 'react-dom';
 import App from './App';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  render(<App />);
 });
 
 const setup = () => {
@@ -47,3 +45,14 @@ it('should not allow to input dot or comma before inputting 0', () => {
   expect(foreignCurrencyInput.value).toEqual('');
 });
 
+it('should not allow to input more than 2 digits after decimal point', () => {
+  const { userCurrencyInput, foreignCurrencyInput } = setup();
+
+  fireEvent.change(userCurrencyInput, { target: { value: '2.22' } });
+  fireEvent.change(userCurrencyInput, { target: { value: '2.222' } });
+  expect(userCurrencyInput.value).toEqual('2.22');
+
+  fireEvent.change(foreignCurrencyInput, { target: { value: '2.22' } });
+  fireEvent.change(foreignCurrencyInput, { target: { value: '2.222' } });
+  expect(foreignCurrencyInput.value).toEqual('2.22');
+});
