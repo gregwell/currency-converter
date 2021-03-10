@@ -42,13 +42,18 @@ function App() {
                 <>
                   <span>1 GBP = </span>
                   <span className={classes.bold}>
-                      {exchangeRate.status === 'success' && exchangeRate.value}
-                      {exchangeRate.status === 'pending' && 
-                        <>
-                          <span>5.0000 </span>
-                          <CircularProgress size="1rem"/>
-                        </>
-                      }
+                    {exchangeRate.status === 'success' && 
+                      <>
+                        {exchangeRate.value}
+                        <span> PLN</span>
+                      </>
+                    }
+                    {exchangeRate.status === 'pending' && 
+                      <>
+                        <span>5.0000 PLN</span>
+                        <CircularProgress size="1rem"/>
+                      </>
+                    }
                   </span>
                   <p className={classes.bold}>No transfer fee</p>
                 </>
