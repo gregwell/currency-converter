@@ -4,14 +4,14 @@ import currency from 'currency.js';
 import useStyles from './styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Input from '../Input/Input';
-import { getExchangeRate } from '../../services/exchangeRate';
+import { fetchExchangeRate } from '../../services/fetchExchangeRate';
 import useAsync from '../../hooks/useAsync';
 
 
 function App() {
   const classes = useStyles();
 
-  const exchangeRate = useAsync(getExchangeRate, true);
+  const exchangeRate = useAsync(fetchExchangeRate, true);
   const [userCurrency, setUserCurrency] = useState([]);
   const [foreignCurrency, setForeignCurrency] = useState([]);
   const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$|^$/;

@@ -25,13 +25,15 @@ This app allows to carry out calculations based on exchange rates from NBP Web A
 
 - Code quality
 - Commits quality
+- Edge cases
 
 ### 2. Learn
 
-- [TDD & writing good tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/tdd-and-writing-good-tests.md)
-- [Create-react-app config & JEST tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/create-react-app-and-jest-tests.md)
-- Fetching data from Web API
-- Interaction tests with React Testing Library
+1. [TDD & writing good tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/tdd-and-writing-good-tests.md)
+2. [Create-react-app config & JEST tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/create-react-app-and-jest-tests.md)
+3. Testing interactions with React Testing Library
+4. Different ways of fetching data from Web API
+5. Testing asynchronous code
 
 ### 3. Do
 
