@@ -11,10 +11,10 @@ function App() {
   const [exchangeRate, setExchangeRate] = useState(null);
   const [userCurrency, setUserCurrency] = useState([]);
   const [foreignCurrency, setForeignCurrency] = useState([]);
-  const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$/;
+  const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$|^$/;
 
   const handleInputChange = (e, isUserCurrency ) => {
-    if (!(isValidInputRegex.test(e.target.value) || e.target.value==="")) {
+    if (!isValidInputRegex.test(e.target.value)) {
       return;
     }
 
