@@ -17,7 +17,9 @@ function App() {
     if (!(isValidInputRegex.test(e.target.value) || e.target.value==="")) {
       return;
     }
-    e.target.value.replace(/,/, '.'); 
+
+    e.target.value = e.target.value.replace(/,/, '.'); 
+    
     if (isUserCurrency) {
       setUserCurrency(e.target.value);
       e.target.value==="" ? setForeignCurrency("") : setForeignCurrency(currency(e.target.value).multiply(exchangeRate));
