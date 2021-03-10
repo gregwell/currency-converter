@@ -18,16 +18,11 @@ const setup = () => {
   }
 }
 
-it('should not allow to input letters in user currency input', () => {
-  const { userCurrencyInput } = setup();
+it('should not allow to input letters in any of the two text fields', () => {
+  const { userCurrencyInput, foreignCurrencyInput } = setup();
 
   fireEvent.change(userCurrencyInput, { target: { value: 'm' } });
-  expect(userCurrencyInput.value).toEqual('');
-});
-
-it('should not allow to input letters in foreign currency input', () => {
-  const { foreignCurrencyInput } = setup();
-
   fireEvent.change(foreignCurrencyInput, { target: { value: 'm' } });
+  expect(userCurrencyInput.value).toEqual('');
   expect(foreignCurrencyInput.value).toEqual('');
 });
