@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
     },
     currencyInfoContainer : {
         margin: theme.spacing(2.5),
+        width: 'calc(180px + 10vw)'
     },
     bold: {
         fontWeight: 500
