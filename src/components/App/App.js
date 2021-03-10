@@ -17,13 +17,13 @@ function App() {
     if (!(isValidInputRegex.test(e.target.value) || e.target.value==="")) {
       return;
     }
-    let valueWithDot = e.target.value.replace(/,/, '.'); 
+    e.target.value.replace(/,/, '.'); 
     if (isUserCurrency) {
-      setUserCurrency(valueWithDot);
-      valueWithDot==="" ? setForeignCurrency("") : setForeignCurrency(currency(valueWithDot).multiply(exchangeRate));
+      setUserCurrency(e.target.value);
+      e.target.value==="" ? setForeignCurrency("") : setForeignCurrency(currency(e.target.value).multiply(exchangeRate));
     } else { 
-      setForeignCurrency(valueWithDot);
-      valueWithDot==="" ? setUserCurrency("") : setUserCurrency(currency(valueWithDot).divide(exchangeRate));
+      setForeignCurrency(e.target.value);
+      e.target.value==="" ? setUserCurrency("") : setUserCurrency(currency(e.target.value).divide(exchangeRate));
     }
   }
 
