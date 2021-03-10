@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import currency from 'currency.js';
 
 import useStyles from './styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Input from '../Input/Input';
 import { getExchangeRate } from '../../services/exchangeRate';
 import useAsync from '../../hooks/useAsync';
@@ -38,13 +39,19 @@ function App() {
         <Input value={foreignCurrency} onChange={e => handleInputChange(e, false)} label="They receive" country="PL"/>
             <div className={classes.currencyInfoContainer}>
               {exchangeRate.status === 'error' && 'Unfortunately we cannot handle your request now, please come back again in a moment!'}
-              {exchangeRate.status === 'success' && (
                 <>
                   <span>1 GBP = </span>
-                  <span className={classes.bold}>{currency(exchangeRate.value) + " PLN"}</span>
+                  <span className={classes.bold}>
+                      {exchangeRate.status === 'success' && exchangeRate.value}
+                      {exchangeRate.status === 'pending' && 
+                        <>
+                          <span>5.0000 </span>
+                          <CircularProgress size="1rem"/>
+                        </>
+                      }
+                  </span>
                   <p className={classes.bold}>No transfer fee</p>
                 </>
-              )}
             </div>
       </header>
     </div>
