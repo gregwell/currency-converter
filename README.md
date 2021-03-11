@@ -1,6 +1,6 @@
 # currency-converter
 
-**Created:** 7.03.2021, **last updated:** 9.03.2021
+**Created:** 7.03.2021, **last updated:** 11.03.2021
 
 This app allows to carry out calculations based on exchange rates from NBP Web API.
 
@@ -25,15 +25,15 @@ This app allows to carry out calculations based on exchange rates from NBP Web A
 
 - Code quality
 - Commits quality
-- Edge cases
 
 ### 2. Learn
 
-1. [TDD & writing good tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/tdd-and-writing-good-tests.md)
-2. [Create-react-app config & JEST tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/create-react-app-and-jest-tests.md)
-3. Testing interactions with React Testing Library
-4. Different ways of fetching data from Web API
-5. Testing asynchronous code
+1. [TDD & writing good tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/currency-converter.md#tdd--writing-good-tests)
+2. [Create-react-app config & JEST tests](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/currency-converter.md#create-react-app-config--jest-tests)
+3. [Interaction tests with Testing Library](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/currency-converter.md#interaction-tests-with-testing-library)
+4. [Different ways of fetching data from Web API](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/currency-converter.md#different-ways-of-fetching-data-from-web-api)
+5. [Dealing with CORS policy](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/currency-converter.md#dealing-with-cors-policy)
+6. [Testing asynchronous code](https://github.com/gregwell/university-notes/blob/main/english/javascript/currency-converter/currency-converter.md#testing-asynchronous-code)
 
 ### 3. Do
 
