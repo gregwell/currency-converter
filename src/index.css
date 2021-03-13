@@ -1,16 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI';
+  font-family: "Segoe UI";
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, html {
+body,
+html {
   height: 100%;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

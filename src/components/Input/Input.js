@@ -1,10 +1,9 @@
 import React from "react";
 import { InputAdornment, TextField, Grid } from "@material-ui/core";
-import useStyles from './styles';
+import useStyles from "./styles";
 import Flag from "./Flag/Flag";
 
-
-const Input = ({label, country, value, onChange}) => {
+const Input = ({ label, country, value, onChange }) => {
   const classes = useStyles();
 
   return (
@@ -23,30 +22,29 @@ const Input = ({label, country, value, onChange}) => {
             startAdornment: (
               <InputAdornment position="start">
                 <div className={classes.flagAdornment}>
-                  <Flag country={country}/>
+                  <Flag country={country} />
                 </div>
               </InputAdornment>
             ),
             endAdornment: (
               <InputAdornment position="end">
                 <div className={classes.currencyCodeAdornment}>
-                  {(country==="GB") ? "GBP" : "PLN"}
+                  {country === "GB" ? "GBP" : "PLN"}
                 </div>
               </InputAdornment>
             ),
             classes: {
               root: classes.input,
-              notchedOutline: classes.notchedOutline
-            }
+              notchedOutline: classes.notchedOutline,
+            },
           }}
           inputProps={{
-            "aria-label": label
+            "aria-label": label,
           }}
         />
       </Grid>
     </div>
-
   );
-}
+};
 
-export default Input
+export default Input;
