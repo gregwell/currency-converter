@@ -1,8 +1,9 @@
 import React from "react";
 import { InputAdornment, TextField, Grid } from "@material-ui/core";
+import PropTypes from "prop-types";
+
 import useStyles from "./styles";
 import Flag from "./Flag/Flag";
-
 import { countryShorts, currencies } from "../../constants/inputConstants";
 
 const Input = ({ label, country, value, onChange }) => {
@@ -47,6 +48,13 @@ const Input = ({ label, country, value, onChange }) => {
       </Grid>
     </div>
   );
+};
+
+Input.propTypes = {
+  label: PropTypes.string,
+  country: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default Input;

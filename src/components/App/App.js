@@ -18,8 +18,8 @@ function App() {
   const classes = useStyles();
 
   const exchangeRate = useAsync(fetchExchangeRate, true);
-  const [userCurrencyAmount, setUserCurrencyAmount] = useState([]);
-  const [foreignCurrencyAmount, setForeignCurrencyAmount] = useState([]);
+  const [userCurrencyAmount, setUserCurrencyAmount] = useState("");
+  const [foreignCurrencyAmount, setForeignCurrencyAmount] = useState("");
   const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$|^$/;
 
   const handleInputChange = (e, isUserCurrency) => {
@@ -34,13 +34,15 @@ function App() {
       value === ""
         ? setForeignCurrencyAmount("")
         : setForeignCurrencyAmount(
-            currency(value).multiply(exchangeRate.value)
+            currency(value).multiply(exchangeRate.value).value.toString()
           );
     } else {
       setForeignCurrencyAmount(value);
       value === ""
         ? setUserCurrencyAmount("")
-        : setUserCurrencyAmount(currency(value).divide(exchangeRate.value));
+        : setUserCurrencyAmount(
+            currency(value).divide(exchangeRate.value).value.toString()
+          );
     }
   };
 
