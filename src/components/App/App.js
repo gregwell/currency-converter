@@ -7,12 +7,19 @@ import Input from "../Input/Input";
 import { fetchExchangeRate } from "../../services/fetchExchangeRate";
 import useAsync from "../../hooks/useAsync";
 
+import {
+  statusNames,
+  messages,
+  countryShorts,
+  inputLabels,
+} from "../../constants/constants";
+
 function App() {
   const classes = useStyles();
 
   const exchangeRate = useAsync(fetchExchangeRate, true);
-  const [userCurrency, setUserCurrency] = useState([]);
-  const [foreignCurrency, setForeignCurrency] = useState([]);
+  const [userCurrencyAmount, setUserCurrencyAmount] = useState([]);
+  const [foreignCurrencyAmount, setForeignCurrencyAmount] = useState([]);
   const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$|^$/;
 
   const handleInputChange = (e, isUserCurrency) => {
@@ -20,20 +27,20 @@ function App() {
       return;
     }
 
-    e.target.value = e.target.value.replace(/,/, ".");
+    const value = e.target.value.replace(/,/, ".");
 
     if (isUserCurrency) {
-      setUserCurrency(e.target.value);
-      e.target.value === ""
-        ? setForeignCurrency("")
-        : setForeignCurrency(
-            currency(e.target.value).multiply(exchangeRate.value)
+      setUserCurrencyAmount(value);
+      value === ""
+        ? setForeignCurrencyAmount("")
+        : setForeignCurrencyAmount(
+            currency(value).multiply(exchangeRate.value)
           );
     } else {
-      setForeignCurrency(e.target.value);
-      e.target.value === ""
-        ? setUserCurrency("")
-        : setUserCurrency(currency(e.target.value).divide(exchangeRate.value));
+      setForeignCurrencyAmount(value);
+      value === ""
+        ? setUserCurrencyAmount("")
+        : setUserCurrencyAmount(currency(value).divide(exchangeRate.value));
     }
   };
 
@@ -41,30 +48,29 @@ function App() {
     <div className={classes.app}>
       <header>
         <Input
-          value={userCurrency}
+          value={userCurrencyAmount}
           onChange={(e) => handleInputChange(e, true)}
-          label="You send"
-          country="GB"
+          label={inputLabels.userCurrencyInput}
+          country={countryShorts.GB}
         />
         <Input
-          value={foreignCurrency}
+          value={foreignCurrencyAmount}
           onChange={(e) => handleInputChange(e, false)}
-          label="They receive"
-          country="PL"
+          label={inputLabels.foreignCurrencyInput}
+          country={countryShorts.PL}
         />
         <div className={classes.currencyInfoContainer}>
-          {exchangeRate.status === "error" &&
-            "Unfortunately we cannot handle your request now, please come back again in a moment!"}
+          {exchangeRate.status === statusNames.error && messages.errorMessage}
           <>
             <span>1 GBP = </span>
             <span className={classes.bold}>
-              {exchangeRate.status === "success" && (
+              {exchangeRate.status === statusNames.success && (
                 <>
                   {exchangeRate.value}
                   <span> PLN</span>
                 </>
               )}
-              {exchangeRate.status === "pending" && (
+              {exchangeRate.status === statusNames.pending && (
                 <>
                   <span>5.0000 PLN</span>
                   <CircularProgress size="1rem" />

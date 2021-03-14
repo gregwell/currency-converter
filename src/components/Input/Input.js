@@ -3,6 +3,8 @@ import { InputAdornment, TextField, Grid } from "@material-ui/core";
 import useStyles from "./styles";
 import Flag from "./Flag/Flag";
 
+import { countryShorts, currencies } from "../../constants/constants";
+
 const Input = ({ label, country, value, onChange }) => {
   const classes = useStyles();
 
@@ -29,7 +31,7 @@ const Input = ({ label, country, value, onChange }) => {
             endAdornment: (
               <InputAdornment position="end">
                 <div className={classes.currencyCodeAdornment}>
-                  {country === "GB" ? "GBP" : "PLN"}
+                  {country === countryShorts.GB ? currencies.GB : currencies.PL}
                 </div>
               </InputAdornment>
             ),
