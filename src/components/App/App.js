@@ -12,6 +12,7 @@ import {
   messages,
   countryShorts,
   inputLabels,
+  currencies
 } from "../../constants/inputConstants";
 
 function App() {
@@ -62,12 +63,12 @@ function App() {
         <div className={classes.currencyInfoContainer}>
           {exchangeRate.status === statusNames.error && messages.errorMessage}
           <>
-            <span>1 GBP = </span>
+            <span>1 {currencies.GB} = </span>
             <span className={classes.bold}>
               {exchangeRate.status === statusNames.success && (
                 <>
                   {exchangeRate.value}
-                  <span> PLN</span>
+                  <span> {currencies.PL}</span>
                 </>
               )}
               {exchangeRate.status === statusNames.pending && (
