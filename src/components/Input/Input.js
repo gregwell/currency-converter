@@ -3,7 +3,7 @@ import { InputAdornment, TextField, Grid } from "@material-ui/core";
 import useStyles from "./styles";
 import Flag from "./Flag/Flag";
 
-import { countryShorts, currencies } from "../../constants/constants";
+import { countryShorts, currencies } from "../../constants/inputConstants";
 
 const Input = ({ label, country, value, onChange }) => {
   const classes = useStyles();

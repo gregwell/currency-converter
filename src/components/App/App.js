@@ -12,7 +12,7 @@ import {
   messages,
   countryShorts,
   inputLabels,
-} from "../../constants/constants";
+} from "../../constants/inputConstants";
 
 function App() {
   const classes = useStyles();

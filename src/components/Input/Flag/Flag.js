@@ -3,7 +3,7 @@ import useStyles from "./styles";
 import GB from "./flags/GB.png";
 import PL from "./flags/PL.png";
 
-import { countryShorts } from "../../../constants/constants";
+import { countryShorts } from "../../../constants/inputConstants";
 
 const Flag = ({ country }) => {
   const classes = useStyles();

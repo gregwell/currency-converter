@@ -1,8 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 
+import { colors } from "../../constants/colors";
+
 export default makeStyles((theme) => ({
   app: {
-    color: "#25303B",
+    color: colors.text,
     height: "250px",
   },
   currencyInfoContainer: {

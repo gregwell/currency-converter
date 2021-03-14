@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { colors } from "../../constants/colors";
 
 export default makeStyles((theme) => ({
   container: {
@@ -13,11 +14,11 @@ export default makeStyles((theme) => ({
 
   textField: {
     margin: theme.spacing(0.25),
-    background: "#FAFCFB",
+    background: colors.textFieldBackground,
   },
 
   notchedOutline: {
-    borderColor: "#607081",
+    borderColor: colors.textFieldOutline,
   },
 
   flagAdornment: {
@@ -30,7 +31,7 @@ export default makeStyles((theme) => ({
   },
 
   currencyCodeAdornment: {
-    color: "#1E2A34",
+    color: colors.currencyCodeText,
     fontSize: 12,
     fontWeight: "bold",
   },
