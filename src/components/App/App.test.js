@@ -37,7 +37,7 @@ it("should replace commas to dots before displaying them in text fields", () => 
   expect(foreignCurrencyInput.value).toEqual("30.");
 });
 
-it("should not allow to input dot or comma before inputting 0", () => {
+it("should not allow to input decimal point before inputting 0", () => {
   const { userCurrencyInput, foreignCurrencyInput } = setup();
 
   fireEvent.change(userCurrencyInput, { target: { value: "." } });
@@ -57,4 +57,14 @@ it("should not allow to input more than 2 digits after decimal point", () => {
   fireEvent.change(foreignCurrencyInput, { target: { value: "2.22" } });
   fireEvent.change(foreignCurrencyInput, { target: { value: "2.222" } });
   expect(foreignCurrencyInput.value).toEqual("2.22");
+});
+
+it("should not allow to input a digit between 0 and decimal point", () => {
+  const { userCurrencyInput, foreignCurrencyInput } = setup();
+
+  fireEvent.change(userCurrencyInput, { target: { value: "01" } });
+  expect(userCurrencyInput.value).toEqual("0");
+
+  fireEvent.change(foreignCurrencyInput, { target: { value: "01" } });
+  expect(foreignCurrencyInput.value).toEqual("0");
 });

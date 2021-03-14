@@ -27,7 +27,7 @@ function App() {
       return;
     }
 
-    let value = e.target.value.replace(/,/, ".");
+    let value = e.target.value.replace(/,/, ".").replace(/^0\d$/, "0");
 
     if (isUserCurrency) {
       setUserCurrencyAmount(value);

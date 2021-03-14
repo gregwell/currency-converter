@@ -1,6 +1,6 @@
 # currency-converter
 
-**Created:** 7.03.2021, **last updated:** 11.03.2021
+**Created:** 7.03.2021, **last updated:** 14.03.2021
 
 This app allows to carry out calculations based on exchange rates from NBP Web API.
 
