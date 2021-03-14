@@ -27,22 +27,20 @@ function App() {
       return;
     }
 
-    const value = e.target.value.replace(/,/, ".");
+    let value = e.target.value.replace(/,/, ".");
 
     if (isUserCurrency) {
       setUserCurrencyAmount(value);
-      value === ""
-        ? setForeignCurrencyAmount("")
-        : setForeignCurrencyAmount(
-            currency(value).multiply(exchangeRate.value).value.toString()
-          );
+      if (value !== "") {
+        value = currency(value).multiply(exchangeRate.value).value.toString();
+      }
+      setForeignCurrencyAmount(value);
     } else {
       setForeignCurrencyAmount(value);
-      value === ""
-        ? setUserCurrencyAmount("")
-        : setUserCurrencyAmount(
-            currency(value).divide(exchangeRate.value).value.toString()
-          );
+      if (value !== "") {
+        value = currency(value).divide(exchangeRate.value).value.toString();
+      }
+      setUserCurrencyAmount(value);
     }
   };
 
