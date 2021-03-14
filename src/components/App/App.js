@@ -12,13 +12,13 @@ import {
   messages,
   countryShorts,
   inputLabels,
-  currencies
+  currencies,
 } from "../../constants/inputConstants";
 
 function App() {
   const classes = useStyles();
 
-  const exchangeRate = useAsync(fetchExchangeRate, true);
+  const exchangeRate = useAsync(fetchExchangeRate);
   const [userCurrencyAmount, setUserCurrencyAmount] = useState("");
   const [foreignCurrencyAmount, setForeignCurrencyAmount] = useState("");
   const isValidInputRegex = /^(\d+)[,.]?\d{0,2}$|^$/;
