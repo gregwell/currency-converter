@@ -71,10 +71,7 @@ function App() {
                 </>
               )}
               {exchangeRate.status === statusNames.pending && (
-                <>
-                  <span>5.0000 PLN</span>
-                  <CircularProgress size="1rem" />
-                </>
+                <CircularProgress size="1rem" />
               )}
             </span>
             <p className={classes.bold}>No transfer fee</p>
