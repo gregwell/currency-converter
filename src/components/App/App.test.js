@@ -74,7 +74,20 @@ it("should not allow to input a digit between 0 and decimal point", () => {
 });
 
 it("should display the exchange rate", async () => {
-  const exchangeRate = 5.3758;
+  const expected = {
+    table: "A",
+    currency: "funt szterling",
+    code: "GBP",
+    rates: [
+      {
+        no: "052/A/NBP/2021",
+        effectiveDate: "2021-03-17",
+        mid: 5.3758,
+      },
+    ],
+  }
+
+  const exchangeRate = expected.rates[0].mid;
   fetchExchangeRate.mockResolvedValueOnce(exchangeRate);
 
   render(<App />);
