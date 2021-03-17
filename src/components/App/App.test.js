@@ -1,6 +1,10 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import App from "./App";
+import { fetchExchangeRate } from "../../services/fetchExchangeRate";
+import { messages } from "../../constants/inputConstants";
+
+jest.mock("../../services/fetchExchangeRate");
 
 it("renders without crashing", () => {
   render(<App />);
@@ -67,4 +71,29 @@ it("should not allow to input a digit between 0 and decimal point", () => {
 
   fireEvent.change(foreignCurrencyInput, { target: { value: "01" } });
   expect(foreignCurrencyInput.value).toEqual("0");
+});
+
+it("should display the exchange rate", async () => {
+  const exchangeRate = 5.3758;
+  fetchExchangeRate.mockResolvedValueOnce(exchangeRate);
+
+  render(<App />);
+
+  expect(fetchExchangeRate).toHaveBeenCalledTimes(1);
+  expect(fetchExchangeRate).toHaveBeenCalledWith();
+
+  await waitFor(() => screen.getByText("5.3758"));
+  expect(screen.getByText("5.3758")).toBeInTheDocument();
+});
+
+it("should display error message on fetching rate failure", async () => {
+  fetchExchangeRate.mockRejectedValueOnce("Error!");
+
+  render(<App />);
+
+  expect(fetchExchangeRate).toHaveBeenCalledTimes(1);
+  expect(fetchExchangeRate).toHaveBeenCalledWith();
+
+  await waitFor(() => screen.getByText(messages.errorMessage));
+  expect(screen.getByText(messages.errorMessage)).toBeInTheDocument();
 });
